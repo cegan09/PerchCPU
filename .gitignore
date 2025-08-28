@@ -1,0 +1,6 @@
+# ignore venv directory
+.venv/
+
+# ignore results files
+*_results.csv
+*_stats.txt

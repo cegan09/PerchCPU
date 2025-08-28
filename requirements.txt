@@ -1,0 +1,5 @@
+# Environment requirements
+tensorflow>=2.20.0rc0
+tensorflow-hub>=0.16.1
+tf-keras>=2.16.0rc0
+soundfile
