@@ -15,8 +15,8 @@ the process.py file will process all files in a specified directory and return p
 2. by default the predictions simply output an ID number, this needs to be referenced against their labels file. This file can be downloaded from the model page directly.
 
 ## Setting up automatic rtsp processing
-I've included files that will allow for automatically capturing rtsp streams and saving them into files formatted for perch to use
-I've also included files that will setup timers to automatically purge old audio files so that your drive doesn't fill. By default the timer runs every 4 hours and deletes anything older than 3 hours. 
+I've included files that will allow for automatically capturing rtsp streams and saving them into files formatted for perch to use  
+I've also included files that will setup timers to automatically purge old audio files so that your drive doesn't fill. By default the timer runs every 4 hours and deletes anything older than 3 hours.   
 1. Review the setup-rtsp-processors.sh file to make sure you agree with that it will do. This script sets up services to process the rtsp streams and auto purge old files
 2. make the setup-rtsp-processors.sh executable with chmod +x
 3. Run the setup-rtsp-processors.sh script
