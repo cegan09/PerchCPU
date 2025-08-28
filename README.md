@@ -25,10 +25,10 @@ I've also included files that will setup timers to automatically purge old audio
 
 ## Items to be added
 I have a realtime processing loop that I'm working on. Once it is cleaned up I will provide the files needed to:
-1. ~Accept an rtsp stream and automatically save it into the file format that Perch wants~
+1. ~Accept an rtsp stream and automatically save it into the file format that Perch wants~ Done
 2. Process these clips in real time outputting the results to a local database
 3. A secondary process that takes the results, applies scientific and common names to predictions, combines consecutive files with matching predictions and then moves these audio clips to a long term storage
-4. A simple process to auto purge sound clips over a specified age
+4. ~A simple process to auto purge sound clips over a specified age~  Done
 
 My current preferred tools for reviewing and displaying results are to push all detections to an influx database and move sound clips to a local NAS folder. Then I can use influx or grafana to build visualizations based on the detection results. But the results can be handled any way you wish. 
 
