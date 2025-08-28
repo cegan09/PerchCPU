@@ -1,0 +1,11 @@
+[Unit]
+Description=Periodic prune of raw clips for %i
+
+[Timer]
+OnBootSec=15min
+OnUnitActiveSec=4h
+RandomizedDelaySec=2min
+Unit=perch-prune@%i.service
+
+[Install]
+WantedBy=timers.target

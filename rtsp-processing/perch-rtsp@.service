@@ -1,0 +1,27 @@
+[Unit]
+Description=Perch RTSP capture (id %i)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+# Run as your user so files are owned by you (adjust if needed)
+User={{USER}}
+Group={{GROUP}}
+
+# Per-stream env: defines RTSP_URL and OUT_DIR
+EnvironmentFile=/etc/rtsp-streamer/%i.env
+
+# Make sure output dir exists
+ExecStartPre=/usr/bin/mkdir -p ${OUT_DIR}
+
+# === Minimal ffmpeg command ===
+ExecStart=/usr/bin/ffmpeg -rtsp_transport tcp -i ${RTSP_URL} \
+  -ac 1 -ar 32000 -f segment -segment_time 5 -reset_timestamps 1 -strftime 1 \
+  -c:a pcm_s16le ${OUT_DIR}/%%y%%m%%d%%H%%M%%S.wav
+
+Restart=always
+RestartSec=2
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=Prune raw clips older than 24h for %i
+After=network-online.target
+
+[Service]
+Type=oneshot
+User={{USER}}
+Group={{GROUP}}
+# Reuse your per-stream env; must define OUT_DIR
+EnvironmentFile=/etc/rtsp-streamer/%i.env
+
+# Safety: skip if folder missing
+ExecStartPre=/usr/bin/test -d "${OUT_DIR}"
+
+# Delete .wav files older than 24h
+ExecStart=/usr/bin/find "${OUT_DIR}" -type f -name '*.wav' -mmin +180 -delete -print
